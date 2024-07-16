@@ -1,0 +1,38 @@
+# Bỏ qua thư mục build và target - loại bỏ các dòng này để không bỏ qua các thư mục này
+# target/
+# !**/src/main/**/target/
+# !**/src/test/**/target/
+# build/
+# !**/src/main/**/build/
+# !**/src/test/**/build/
+
+# Maven Wrapper - vẫn giữ lại để đảm bảo các file Maven Wrapper được theo dõi
+!.mvn/wrapper/maven-wrapper.jar
+
+# Spring Tool Suite (STS)
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# IntelliJ IDEA
+.idea
+*.iws
+*.iml
+*.ipr
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# MacOS
+.DS_Store
