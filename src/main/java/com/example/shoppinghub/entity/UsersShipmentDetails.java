@@ -1,13 +1,11 @@
 package com.example.shoppinghub.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Timestamp;
 
@@ -22,8 +20,9 @@ public class UsersShipmentDetails {
     @Column(name = "shipment_id", length = 20)
     private String shipmentId;
 
-    @Column(name = "user_id", length = 20)
-    private String userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     @Column(name = "name", length = 100, nullable = false)
     private String name;
@@ -41,5 +40,6 @@ public class UsersShipmentDetails {
     private Boolean isDefault;
 
     @Column(name = "created_at", nullable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @CreationTimestamp
     private Timestamp createdAt;
 }

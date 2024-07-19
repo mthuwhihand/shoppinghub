@@ -1,10 +1,13 @@
 package com.example.shoppinghub.entity;
 
+import com.example.shoppinghub.service.IdGeneratorService;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Timestamp;
 @Getter
@@ -15,8 +18,6 @@ import java.sql.Timestamp;
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
-    @SequenceGenerator(name = "user_seq", sequenceName = "user_sequence", allocationSize = 1)
     @Column(name = "user_id", length = 20)
     private String userId;
 
@@ -35,10 +36,13 @@ public class User {
     @Column(name = "password", length = 100, nullable = false)
     private String password;
 
-    @Column(name = "role_id", length = 20)
-    private String roleId;
+    @ManyToOne
+    @JoinColumn(name = "role_id", referencedColumnName = "role_id")
+    private Role role;
 
     @Column(name = "created_at", nullable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @CreationTimestamp
     private Timestamp createdAt;
+
 
 }
