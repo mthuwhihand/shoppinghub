@@ -20,9 +20,6 @@ public class Order {
     @Column(name = "order_id", length = 20)
     private String orderId;
 
-    @Column(name = "order_number", length = 20, unique = true, nullable = false)
-    private String orderNumber;
-
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -35,9 +32,6 @@ public class Order {
 
     @Column(name = "payment_method", length = 50)
     private String paymentMethod;
-
-    @Column(name = "shipping_address", nullable = false)
-    private String shippingAddress;
 
     @Column(name = "shipping_fee", precision = 10, scale = 2, nullable = false)
     private BigDecimal shippingFee;
