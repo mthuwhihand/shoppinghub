@@ -17,27 +17,37 @@ import java.sql.Timestamp;
 @Table(name = "Users_ShipmentDetails")
 public class UsersShipmentDetails {
     @Id
-    @Column(name = "shipment_id", length = 20)
-    private String shipmentId;
-
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "name", length = 100, nullable = false)
-    private String name;
+    @Id
+    @Column(name = "recipient_name", length = 100, nullable = false)
+    private String recipientName;
 
-    @Column(name = "phone_number", length = 20, nullable = false)
-    private String phoneNumber;
+    @Id
+    @Column(name = "contact_number", length = 20, nullable = false)
+    private String contactNumber;
 
-    @Column(name = "specific_address", length = 255, nullable = false)
-    private String specificAddress;
+    @Id
+    @Column(name = "address_line", length = 255, nullable = false)
+    private String addressLine;
 
-    @Column(name = "administrative_boundaries", length = 255, nullable = false)
-    private String administrativeBoundaries;
+    @Id
+    @Column(name = "ward", length = 100, nullable = false)
+    private String ward;
 
-    @Column(name = "is_default")
-    private Boolean isDefault;
+    @Id
+    @Column(name = "district", length = 100, nullable = false)
+    private String district;
+
+    @Id
+    @Column(name = "province", length = 100, nullable = false)
+    private String province;
+
+    @Id
+    @Column(name = "country", length = 100, nullable = false)
+    private String country;
 
     @Column(name = "created_at", nullable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @CreationTimestamp

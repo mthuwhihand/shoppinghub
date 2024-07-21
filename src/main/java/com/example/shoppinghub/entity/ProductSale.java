@@ -12,22 +12,19 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "product_sales")
+@Table(name = "sale_products")
 public class ProductSale {
     @Id
-    @Column(name = "product_sale_id", length = 20)
-    private String productSaleId;
-
     @ManyToOne
-    @JoinColumn(name = "variant_id")
-    private ProductVariant productVariant;
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
 
+    @Id
     @ManyToOne
     @JoinColumn(name = "sale_id")
     private Sale sale;
 
-    @Column(name = "discounted_price", precision = 10, scale = 2)
-    private BigDecimal discountedPrice;
+
 
 
 }

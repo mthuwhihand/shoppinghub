@@ -37,6 +37,9 @@ public class Product {
     @JoinColumn(name = "shop_id")
     private Shop shop;
 
+    @Column(name = "default_image", length = 255)
+    private String defaultImage;
+
     @Column(name = "created_at", updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp

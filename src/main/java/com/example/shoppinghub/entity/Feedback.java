@@ -27,14 +27,14 @@ public class Feedback {
     @JoinColumn(name = "variant_id")
     private ProductVariant productVariant;
 
-    @Column(name = "rating", nullable = false)
-    private Integer rating;
+    @Column(name = "number_star")
+    private int numberStar;
 
-    @Column(name = "content", nullable = false)
-    private String content;
+    @Column(name = "content_rated", length = 1000)
+    private String contentRated;
 
-    @Column(name = "created_at", updatable = false)
+    @Column(name = "feedback_date", updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
-    private Date createdAt;
+    private Date feedbackDate;
 }

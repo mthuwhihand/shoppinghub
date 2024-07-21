@@ -20,27 +20,42 @@ public class Order {
     @Column(name = "order_id", length = 20)
     private String orderId;
 
-    @Column(name = "order_number", length = 20, unique = true, nullable = false)
-    private String orderNumber;
-
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "total_amount", precision = 10, scale = 2, nullable = false)
-    private BigDecimal totalAmount;
+    @Column(name = "payment_method", length = 50)
+    private String paymentMethod;
+
+    @Column(name = "estimated_delivery_fee", nullable = false)
+    private double estimatedDeliveryFee;
+
+    @Column(name = "total_amount", nullable = false)
+    private double totalAmount;
 
     @Column(name = "payment_status", length = 50, nullable = false)
     private String paymentStatus;
 
-    @Column(name = "payment_method", length = 50)
-    private String paymentMethod;
+    @Column(name = "recipient_name", length = 100, nullable = false)
+    private String recipientName;
 
-    @Column(name = "shipping_address", nullable = false)
-    private String shippingAddress;
+    @Column(name = "contact_number", length = 20, nullable = false)
+    private String contactNumber;
 
-    @Column(name = "shipping_fee", precision = 10, scale = 2, nullable = false)
-    private BigDecimal shippingFee;
+    @Column(name = "address_line", length = 255, nullable = false)
+    private String addressLine;
+
+    @Column(name = "ward", length = 100, nullable = false)
+    private String ward;
+
+    @Column(name = "district", length = 100, nullable = false)
+    private String district;
+
+    @Column(name = "province", length = 100, nullable = false)
+    private String province;
+
+    @Column(name = "country", length = 100, nullable = false)
+    private String country;
 
     @Column(name = "created_at", updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
