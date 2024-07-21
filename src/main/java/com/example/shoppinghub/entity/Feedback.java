@@ -13,23 +13,22 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "comments")
-public class Comment {
+@Table(name = "feedbacks")
+public class Feedback {
     @Id
-    @Column(name = "comment_id", length = 20)
-    private String commentId;
+    @Column(name = "feedback_id", length = 20)
+    private String feedbackId;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
-
-    @ManyToOne
     @JoinColumn(name = "variant_id")
     private ProductVariant productVariant;
+
+    @Column(name = "rating", nullable = false)
+    private Integer rating;
 
     @Column(name = "content", nullable = false)
     private String content;
