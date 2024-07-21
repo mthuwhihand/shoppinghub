@@ -26,7 +26,10 @@ public class ProductVariant {
     private Integer stockQuantity;
 
     @Column(name = "price", precision = 10, scale = 2)
-    private BigDecimal price;
+    private BigDecimal price;s
+
+    @Column(name = "color", length = 30) // Thêm thuộc tính màu sắc
+    private String color;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
